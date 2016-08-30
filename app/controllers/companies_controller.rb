@@ -11,6 +11,8 @@ class CompaniesController < ApplicationController
     @numc = Company.count
     @numu = User.count
     @numcp = Complain.count
+
+    @graphTop10 = Company.joins(:complains).group("companies.name").order("count(*) DESC").limit(10).pluck("companies.name, count(*)")
   end
 
   # GET /companies/1

@@ -3,6 +3,8 @@
 <h3>DASHBOARD</h3>
 Companies: <%= @numc %> | Users: <%= @numu %> | Complains: <%= @numcp %>
 
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+<%= bar_chart @graphTop10 %>
 
 <h3>New Company</h3>
 
