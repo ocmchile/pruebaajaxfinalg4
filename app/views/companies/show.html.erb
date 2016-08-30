@@ -4,6 +4,11 @@
   <strong>Name:</strong>
   <%= @company.name %>
 </p>
+Total Complains: <%= @totcp %>
+
+<h3>New Complain</h3>
+
+<%= render 'formc' %>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

@@ -1,16 +1,23 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show]
 
   # GET /companies
   # GET /companies.json
   def index
     @companies = Company.all
     @company = Company.new
+
+    @numc = Company.count
+    @numu = User.count
+    @numcp = Complain.count
   end
 
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @complain = Complain.new
+    @totcp = @company.complains.count
   end
 
   # GET /companies/new
