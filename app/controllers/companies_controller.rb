@@ -20,6 +20,8 @@ class CompaniesController < ApplicationController
   def show
     @complain = Complain.new
     @totcp = @company.complains.count
+
+    @graphComplainsPerDay = Company.joins(:complains).where("company_id = #{@company.id}").group("complains.created_at").order("count(*) DESC").pluck("complains.created_at, count(*)")
   end
 
   # GET /companies/new

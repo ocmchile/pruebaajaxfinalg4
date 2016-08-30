@@ -6,6 +6,9 @@
 </p>
 Total Complains: <%= @totcp %>
 
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+<%= column_chart @graphComplainsPerDay %>
+
 <h3>New Complain</h3>
 
 <%= render 'formc' %>
